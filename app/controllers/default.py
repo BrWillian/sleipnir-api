@@ -7,7 +7,11 @@ from flask import request
 from numpy import fromstring, uint8, array, squeeze, float32
 from cv2 import imdecode, resize, IMREAD_COLOR, INTER_CUBIC, imencode
 from base64 import b64encode, b64decode
+from app.tf_model import VtNet
 
+
+model = VtNet.build()
+model.summary()
 
 @app.route('/api', methods=['POST', 'GET'])
 def index():
