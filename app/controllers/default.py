@@ -9,9 +9,17 @@ from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
 from cv2 import imdecode, resize, IMREAD_COLOR, INTER_CUBIC, imencode, putText
 from base64 import b64encode, b64decode
+<<<<<<< HEAD
 
 
 model = load_model('tf_model/model.hdf5')
+=======
+from app.tf_model.VtNet import VtNet
+
+
+model = VtNet.build(32,32, 3, 2)
+model.summary()
+>>>>>>> ad864a0f58a3fe459630b89ab206e750809dc216
 
 @app.route('/api', methods=['POST', 'GET'])
 def index():
