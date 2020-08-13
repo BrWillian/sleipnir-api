@@ -7,10 +7,10 @@ from flask import request
 from numpy import fromstring, uint8, array, squeeze, float32
 from cv2 import imdecode, resize, IMREAD_COLOR, INTER_CUBIC, imencode
 from base64 import b64encode, b64decode
-from app.tf_model import VtNet
+from app.tf_model.VtNet import VtNet
 
 
-model = VtNet.build()
+model = VtNet.build(32,32, 3, 2)
 model.summary()
 
 @app.route('/api', methods=['POST', 'GET'])
